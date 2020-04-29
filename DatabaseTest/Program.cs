@@ -39,11 +39,11 @@ namespace DatabaseTest
     {
         public string Title { get; set; }
         
-        public Nullable<BigInteger> Worldwide_Gross { get; set; }
+        public Nullable<Int64> Worldwide_Gross { get; set; }
         public string Release_Date { get; set; }
         public string MPAA_Rating { get; set; }
         public string Director { get; set; }
-        public Nullable<BigInteger> Rotten_Tomatoes_Rating { get; set; }
+        public Nullable<Int64> Rotten_Tomatoes_Rating { get; set; }
         */
 
     

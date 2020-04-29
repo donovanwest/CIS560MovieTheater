@@ -10,13 +10,13 @@ namespace DatabaseTest
     internal class CreateMovieDataDelegate : NonQueryDataDelegate<Movie>
     {
         public string Title;
-        public Nullable<BigInteger> Worldwide_Gross;
+        public Nullable<Int64> Worldwide_Gross;
         public string Release_Date;
         public string MPAA_Rating;
         public string Director;
         public Nullable<int> Rotten_Tomatoes_Rating;
 
-        public CreateMovieDataDelegate(string title, Nullable<BigInteger> worldwide_Gross, string release_Date, string MPAA_Rating, Nullable<int> rotten_Tomatoes_Rating, string director) : base("Movie.CreateMovie")
+        public CreateMovieDataDelegate(string title, Nullable<Int64> worldwide_Gross, string release_Date, string MPAA_Rating, Nullable<int> rotten_Tomatoes_Rating, string director) : base("Movie.CreateMovie")
         {
             Title = title;
             Worldwide_Gross = worldwide_Gross;
@@ -34,19 +34,19 @@ namespace DatabaseTest
             p.Value = Title;
 
             p = command.Parameters.Add("Wordlwide_Gross", SqlDbType.BigInt);
-            p.Value = Title;
+            p.Value = Convert.ToInt64(Worldwide_Gross);
 
             p = command.Parameters.Add("Release_Date", SqlDbType.Date);
-            p.Value = Title;
+            p.Value = Convert.ToDateTime(Release_Date);
 
             p = command.Parameters.Add("MPAA_Rating", SqlDbType.NVarChar);
-            p.Value = Title;
+            p.Value = MPAA_Rating;
 
             p = command.Parameters.Add("Rotten_Tomatoes_Rating", SqlDbType.Int);
-            p.Value = Title;
+            p.Value = Rotten_Tomatoes_Rating;
 
             p = command.Parameters.Add("Director", SqlDbType.NVarChar);
-            p.Value = Title;
+            p.Value = Director;
 
             p = command.Parameters.Add("MovieID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;

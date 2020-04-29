@@ -15,7 +15,7 @@ namespace DatabaseTest
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public void SaveMovie(string title, Nullable<BigInteger> worldwide_Gross, string release_Date, string MPAA_Rating, Nullable<int> rotten_Tomatoes_Rating, string director)
+        public void SaveMovie(string title, Nullable<Int64> worldwide_Gross, string release_Date, string MPAA_Rating, Nullable<int> rotten_Tomatoes_Rating, string director)
         {
             var d = new CreateMovieDataDelegate(title, worldwide_Gross, release_Date, MPAA_Rating, rotten_Tomatoes_Rating, director);
             executor.ExecuteNonQuery(d);
