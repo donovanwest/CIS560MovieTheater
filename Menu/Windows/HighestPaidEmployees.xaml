@@ -7,25 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0">Pay</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="1">First</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="2">Last</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="3">Start Date</TextBlock>
-        <StackPanel Grid.Column="0" Grid.Row ="1">
-            <ListView Margin="10" >
-                
-            </ListView>
+        <StackPanel Grid.Column="0">
+            
         </StackPanel>
         <StackPanel Grid.Column="1">
         </StackPanel>

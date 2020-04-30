@@ -11,8 +11,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-//using MovieTheaterData;
-
 namespace Menu
 {
     public partial class HighestPaidEmployees : UserControl
@@ -20,7 +18,6 @@ namespace Menu
         public HighestPaidEmployees()
         {
             InitializeComponent();
-
         }
     }
 }
