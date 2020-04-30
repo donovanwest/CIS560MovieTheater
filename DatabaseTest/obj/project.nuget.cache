@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QqWGG+JP0bS2kmXo2Tlq01u1v1aE9VerOXPWIJwA7qqFvE+Yz/+XKn9Li17/AOlUax1cV0MOzYvwNpOUAklCpA==",
+  "dgSpecHash": "dTfhFOaANNYFxPjn/l+YR8/haHF47ozdahgY9OkvRrYWLqY72+39V0sjFZZCW5Rqt5oGpoPo9VvZmKC/WyPk4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\DatabaseTest.csproj",
+  "projectFilePath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\MovieTheaterData.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Donovan\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Donovan\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

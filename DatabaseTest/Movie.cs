@@ -7,24 +7,28 @@ using System.Linq;
 
 namespace DatabaseTest
 {
+    
     public class Movie
     {
+        //static string[] valid = { "G", "PG", "PG-13", "R", "NC-17", "Not Rated" };
         public string Title { get; set; }
         public Nullable<Int64> Worldwide_Gross { get; set; }
         public string Release_Date { get; set; }
+        public string MPAA_Rating { get; set; }
+        /*
         public string MPAA_Rating
         {
-            get { return MPAA_Rating; } 
+            get { return MPAA_Rating; }
             set
             {
-                string[] valid = { "G", "PG", "PG-13", "R", "NC-17", "Not Rated" };
-                if (!valid.Contains<string>(value))
-                    MPAA_Rating = "Not Rated";
-                else
+                MPAA_Rating = value;
+                if (value == "G" || value == "PG" || value == "PG-13" || value == "R" || value == "NC-17" || value == "Not Rated")
                     MPAA_Rating = value;
+                else
+                    MPAA_Rating = "Not Rated";
             }
         }
-
+            */
         public Nullable<int> Rotten_Tomatoes_Rating { get; set; }
         public string Director { get; set; }
         

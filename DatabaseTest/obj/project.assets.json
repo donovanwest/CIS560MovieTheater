@@ -514,9 +514,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\DatabaseTest.csproj",
-      "projectName": "DatabaseTest",
-      "projectPath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\DatabaseTest.csproj",
+      "projectUniqueName": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\MovieTheaterData.csproj",
+      "projectName": "MovieTheaterData",
+      "projectPath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\MovieTheaterData.csproj",
       "packagesPath": "C:\\Users\\Donovan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\obj\\",
       "projectStyle": "PackageReference",
