@@ -30,7 +30,7 @@ namespace DatabaseTest
 
             //LoadMovies(connectionString);
             //LoadTheaters(connectionString);
-           // LoadEmployees(connectionString);
+            LoadEmployees(connectionString);
 
             IReadOnlyList<Movie> movies = GetMovies(connectionString);
             IReadOnlyList<Theater> theaters = GetTheaters(connectionString);
@@ -177,7 +177,7 @@ namespace DatabaseTest
                 }
             }
             Console.WriteLine("Showings created, sending them to database");
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required, new System.TimeSpan(0,15,0)))
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required, new System.TimeSpan(2,0,0)))
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -187,6 +187,7 @@ namespace DatabaseTest
                         connection.Open();
                         foreach (Showing s in showings)
                         {
+                            //Console.WriteLine("Adding showing with movie" + s.MovieID);
                             command.Parameters.Clear();
                             command.Parameters.AddWithValue("MovieID", s.MovieID);
                             command.Parameters.AddWithValue("TheaterID", s.TheaterID);
@@ -218,6 +219,7 @@ namespace DatabaseTest
                 for (int c = 0; c < g; c++)
                     AddEmployeeShowing(s.ShowingID, validEmployees.ElementAt<Employee>(r.Next(0, validEmployees.Count)).EmployeeID, connectionString);
             }
+            Console.WriteLine("EmployeeShowings loaded");
         }
 
         static void AddEmployeeShowing(int ShowingID, int EmployeeID, string connectionString)
