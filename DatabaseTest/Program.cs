@@ -12,26 +12,29 @@ namespace DatabaseTest
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Start");
             ///ConnectionString
             string connectionString;
             ///ConnectionString Initializaion password hiding.
             {
                 connectionString = "Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=Donnybob185;";
             }
-
+            Console.WriteLine("Parsing JSON");
             //var test = new SqlCommandExecutor(connectionString);
             var repo = new MovieRepo(connectionString);
             List<Movie> items;
             using (StreamReader r = new StreamReader("movies.json"))
             {
                 string json = r.ReadToEnd();
+                Console.WriteLine("JSON Read");
                 items = JsonConvert.DeserializeObject<List<Movie>>(json);        
             }
-
-            foreach(Movie i in items)
+            Console.WriteLine("inserting " + items.Count + " rows");
+            foreach (Movie i in items)
             {
                 repo.SaveMovie(i.Title, i.Worldwide_Gross, i.Release_Date, i.MPAA_Rating, i.Rotten_Tomatoes_Rating, i.Director);
             }
+            Console.WriteLine("inserted " + items.Count + " rows");
         }
     }
     /*

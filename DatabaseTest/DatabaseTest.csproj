@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Movie.CreateMovie.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
     <COMReference Include="TxAgg.dll">
       <Guid>04e31e2b-802b-452e-9e42-c4f6ea5fff2a</Guid>
       <VersionMajor>1</VersionMajor>
@@ -66,10 +62,6 @@
       <Lcid>0</Lcid>
       <Isolated>false</Isolated>
     </COMReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Movie.CreateMovie.sql" />
   </ItemGroup>
 
   <ItemGroup>

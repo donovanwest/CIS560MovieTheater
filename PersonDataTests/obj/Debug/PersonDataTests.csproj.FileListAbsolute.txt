@@ -13,3 +13,6 @@ C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\obj\Debug\Person
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\obj\Debug\PersonDataTests.csproj.CopyComplete
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\obj\Debug\PersonDataTests.dll
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\obj\Debug\PersonDataTests.pdb
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll

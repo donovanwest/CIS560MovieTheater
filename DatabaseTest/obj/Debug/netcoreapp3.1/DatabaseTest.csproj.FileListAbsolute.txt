@@ -6,7 +6,6 @@ C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\bin\Debug\netcoreap
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\bin\Debug\netcoreapp3.1\DatabaseTest.pdb
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\bin\Debug\netcoreapp3.1\DataAccess.dll
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\bin\Debug\netcoreapp3.1\DataAccess.pdb
-C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\obj\Debug\netcoreapp3.1\DatabaseTest.csprojAssemblyReference.cache
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\obj\Debug\netcoreapp3.1\DatabaseTest.AssemblyInfoInputs.cache
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\obj\Debug\netcoreapp3.1\DatabaseTest.AssemblyInfo.cs
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\obj\Debug\netcoreapp3.1\DatabaseTest.csproj.CopyComplete
@@ -36,3 +35,4 @@ C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\bin\Debug\netcoreap
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\obj\Debug\netcoreapp3.1\DatabaseTest.csproj.CoreCompileInputs.cache
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\DatabaseTest\obj\Debug\netcoreapp3.1\DatabaseTest.csprojAssemblyReference.cache

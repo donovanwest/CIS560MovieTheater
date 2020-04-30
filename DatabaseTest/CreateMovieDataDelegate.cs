@@ -16,7 +16,7 @@ namespace DatabaseTest
         public string Director;
         public Nullable<int> Rotten_Tomatoes_Rating;
 
-        public CreateMovieDataDelegate(string title, Nullable<Int64> worldwide_Gross, string release_Date, string MPAA_Rating, Nullable<int> rotten_Tomatoes_Rating, string director) : base("Movie.CreateMovie")
+        public CreateMovieDataDelegate(string title, Nullable<Int64> worldwide_Gross, string release_Date, string MPAA_Rating, Nullable<int> rotten_Tomatoes_Rating, string director) : base("MovieTheater.CreateMovie")
         {
             Title = title;
             Worldwide_Gross = worldwide_Gross;
@@ -33,20 +33,32 @@ namespace DatabaseTest
             var p = command.Parameters.Add("Title", SqlDbType.NVarChar);
             p.Value = Title;
 
-            p = command.Parameters.Add("Wordlwide_Gross", SqlDbType.BigInt);
-            p.Value = Convert.ToInt64(Worldwide_Gross);
+            p = command.Parameters.Add("WorldwideGross", SqlDbType.BigInt);
+            if (Worldwide_Gross != null)
+                p.Value = Convert.ToInt64(Worldwide_Gross);
+            else
+                p.Value = DBNull.Value;
 
-            p = command.Parameters.Add("Release_Date", SqlDbType.Date);
+            p = command.Parameters.Add("ReleaseDate", SqlDbType.Date);
             p.Value = Convert.ToDateTime(Release_Date);
 
             p = command.Parameters.Add("MPAA_Rating", SqlDbType.NVarChar);
-            p.Value = MPAA_Rating;
+            if(MPAA_Rating != null)
+                p.Value = MPAA_Rating;
+            else
+                p.Value = DBNull.Value;
 
-            p = command.Parameters.Add("Rotten_Tomatoes_Rating", SqlDbType.Int);
-            p.Value = Rotten_Tomatoes_Rating;
+            p = command.Parameters.Add("RottenTomatoesRating", SqlDbType.Int);
+            if (Rotten_Tomatoes_Rating != null)
+                p.Value = Convert.ToInt16(Rotten_Tomatoes_Rating);
+            else
+                p.Value = DBNull.Value;
 
             p = command.Parameters.Add("Director", SqlDbType.NVarChar);
-            p.Value = Director;
+            if(Director != null)
+                p.Value = Convert.ToString(Director);
+            else
+                p.Value = DBNull.Value;
 
             p = command.Parameters.Add("MovieID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;

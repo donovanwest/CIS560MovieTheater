@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE Movie.CreateMovie
+﻿CREATE OR ALTER PROCEDURE MovieTheater.CreateMovie
    @Title NVARCHAR(75),
    @WorldwideGross BIGINT,
    @ReleaseDate DATE,   
