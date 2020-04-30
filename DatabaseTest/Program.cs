@@ -36,7 +36,9 @@ namespace DatabaseTest
             IReadOnlyList<Theater> theaters = GetTheaters(connectionString);
             IReadOnlyList<Employee> employees = GetEmployees(connectionString);
 
-            LoadShowings(connectionString, movies, theaters, employees);
+            //LoadShowings(connectionString, movies, theaters, employees);
+
+            IReadOnlyList<Showing> showings = GetShowings(connectionString);
         }
 
         static void LoadMovies(string connectionString)
@@ -205,6 +207,7 @@ namespace DatabaseTest
                 }
             }
             Console.WriteLine("Showings uploaded");
+            /*
             Console.WriteLine("Loading EmployeeShowing");
             foreach(Showing s in showings)
             {
@@ -220,6 +223,7 @@ namespace DatabaseTest
                     AddEmployeeShowing(s.ShowingID, validEmployees.ElementAt<Employee>(r.Next(0, validEmployees.Count)).EmployeeID, connectionString);
             }
             Console.WriteLine("EmployeeShowings loaded");
+            */
         }
 
         static void AddEmployeeShowing(int ShowingID, int EmployeeID, string connectionString)
@@ -341,6 +345,38 @@ namespace DatabaseTest
             return employees;
         }
 
+        static IReadOnlyList<Showing> GetShowings(string connectionString)
+        {
+            Console.WriteLine("Getting Showings");
+            List<Showing> showings = new List<Showing>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand("MovieTheater.GetShowings", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Showing s = new Showing();
+                            s.ShowingID = reader.GetInt32("ShowingID");
+                            s.MovieID = reader.GetInt32("MovieID");
+                            s.TheaterID = reader.GetInt32("TheaterID");
+                            s.StartTime = reader.GetDateTime("StartTime");
+                            s.EndTime = reader.GetDateTime("EndTime");
+                            s.TicketsPurchased = reader.GetInt32("TicketsPurchased");
+                            s.TicketPrice = reader.GetDouble("TicketPrice");
+                            showings.Add(s);
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Returning Showings");
+            return showings;
+        }
 
 
 
