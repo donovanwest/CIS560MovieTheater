@@ -507,27 +507,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Donovan\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\longs\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\MovieTheaterData.csproj",
+      "projectUniqueName": "C:\\Users\\longs\\source\\repos\\CIS560MovieTheater\\DatabaseTest\\MovieTheaterData.csproj",
       "projectName": "MovieTheaterData",
-      "projectPath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\MovieTheaterData.csproj",
-      "packagesPath": "C:\\Users\\Donovan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DatabaseTest\\obj\\",
+      "projectPath": "C:\\Users\\longs\\source\\repos\\CIS560MovieTheater\\DatabaseTest\\MovieTheaterData.csproj",
+      "packagesPath": "C:\\Users\\longs\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\longs\\source\\repos\\CIS560MovieTheater\\DatabaseTest\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Donovan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\longs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -539,8 +532,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Donovan\\Documents\\Code\\DataAccessDemo2\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\longs\\source\\repos\\CIS560MovieTheater\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\longs\\source\\repos\\CIS560MovieTheater\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -578,7 +571,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
