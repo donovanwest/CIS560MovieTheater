@@ -58,33 +58,33 @@
     <Compile Include="Selection.xaml.cs">
       <DependentUpon>Selection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TodayShowings.xaml.cs">
+    <Compile Include="Windows\TodayShowings.xaml.cs">
       <DependentUpon>TodayShowings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Topten.xaml.cs">
+    <Compile Include="Windows\Topten.xaml.cs">
       <DependentUpon>Topten.xaml</DependentUpon>
     </Compile>
-    <Page Include="DirectorsLongestMovies.xaml">
+    <Page Include="Windows\DirectorsLongestMovies.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DirectorsMostShowing.xaml">
+    <Page Include="Windows\DirectorsMostShowing.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="EmployeesNotWorking.xaml">
+    <Page Include="Windows\EmployeesNotWorking.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="FullTheaters.xaml">
+    <Page Include="Windows\FullTheaters.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="HandicapAccessibleTheaters.xaml">
+    <Page Include="Windows\HandicapAccessibleTheaters.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="HighestPaidEmployees.xaml">
+    <Page Include="Windows\HighestPaidEmployees.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -96,42 +96,42 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DirectorsLongestMovies.xaml.cs">
+    <Compile Include="Windows\DirectorsLongestMovies.xaml.cs">
       <DependentUpon>DirectorsLongestMovies.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DirectorsMostShowing.xaml.cs">
+    <Compile Include="Windows\DirectorsMostShowing.xaml.cs">
       <DependentUpon>DirectorsMostShowing.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmployeesNotWorking.xaml.cs">
+    <Compile Include="Windows\EmployeesNotWorking.xaml.cs">
       <DependentUpon>EmployeesNotWorking.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExtentionMethods.cs" />
-    <Compile Include="FullTheaters.xaml.cs">
+    <Compile Include="Windows\FullTheaters.xaml.cs">
       <DependentUpon>FullTheaters.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HandicapAccessibleTheaters.xaml.cs">
+    <Compile Include="Windows\HandicapAccessibleTheaters.xaml.cs">
       <DependentUpon>HandicapAccessibleTheaters.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HighestPaidEmployees.xaml.cs">
+    <Compile Include="Windows\HighestPaidEmployees.xaml.cs">
       <DependentUpon>HighestPaidEmployees.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MostProfits.xaml">
+    <Page Include="Windows\MostProfits.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MostTotalPay.xaml">
+    <Page Include="Windows\MostTotalPay.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NewestMovie.xaml">
+    <Page Include="Windows\NewestMovie.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OldestMovies.xaml">
+    <Page Include="Windows\OldestMovies.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -139,7 +139,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ProfitsLost.xaml">
+    <Page Include="Windows\ProfitsLost.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -147,32 +147,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TodayShowings.xaml">
+    <Page Include="Windows\TodayShowings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Topten.xaml">
+    <Page Include="Windows\Topten.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MostProfits.xaml.cs">
+    <Compile Include="Windows\MostProfits.xaml.cs">
       <DependentUpon>MostProfits.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MostTotalPay.xaml.cs">
+    <Compile Include="Windows\MostTotalPay.xaml.cs">
       <DependentUpon>MostTotalPay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewestMovie.xaml.cs">
+    <Compile Include="Windows\NewestMovie.xaml.cs">
       <DependentUpon>NewestMovie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OldestMovies.xaml.cs">
+    <Compile Include="Windows\OldestMovies.xaml.cs">
       <DependentUpon>OldestMovies.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrderControl.xaml.cs">
       <DependentUpon>OrderControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProfitsLost.xaml.cs">
+    <Compile Include="Windows\ProfitsLost.xaml.cs">
       <DependentUpon>ProfitsLost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -200,8 +200,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Windows\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
