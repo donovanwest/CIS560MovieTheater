@@ -15,6 +15,8 @@ namespace DatabaseTest
         public Nullable<Int64> Worldwide_Gross { get; set; }
         public string Release_Date { get; set; }
         public string MPAA_Rating { get; set; }
+
+        public int MovieID { get; set; }
         /*
         public string MPAA_Rating
         {
@@ -42,6 +44,11 @@ namespace DatabaseTest
             Rotten_Tomatoes_Rating = rotten_Tomatoes_Rating;
             Director = director;
            // Convert.ToDateTime(release_Date);
+        }
+
+        public Movie()
+        {
+
         }
     }
 }
