@@ -30,7 +30,7 @@ namespace DatabaseTest
 
             //LoadMovies(connectionString);
             //LoadTheaters(connectionString);
-            LoadEmployees(connectionString);
+            //LoadEmployees(connectionString);
 
             IReadOnlyList<Movie> movies = GetMovies(connectionString);
             IReadOnlyList<Theater> theaters = GetTheaters(connectionString);
@@ -162,7 +162,7 @@ namespace DatabaseTest
             List<Showing> showings = new List<Showing>();
             foreach(Movie m in movies)
             {
-                int a = r.Next(10, 50);
+                int a = r.Next(8, 20);
                 for(int k = 0; k<a; k++)
                 {
                     Showing s = new Showing();
@@ -172,21 +172,21 @@ namespace DatabaseTest
                     s.StartTime = Convert.ToDateTime(m.Release_Date).AddDays(r.Next(0,60)).AddHours(r.Next(0,24)).AddMinutes(r.Next(0,60));
                     s.EndTime = s.StartTime.AddMinutes(r.Next(60, 210));
                     s.TicketsPurchased = r.Next(0, t.Capacity);
-                    s.TicketPrice = ((double)r.Next(400, 1500))/100;
+                    s.TicketPrice = ((double)r.Next(400, 1500)) / 100;
                     showings.Add(s);
                 }
             }
             Console.WriteLine("Showings created, sending them to database");
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required, new System.TimeSpan(2,0,0)))
+            foreach (Showing s in showings)
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required, new System.TimeSpan(2, 0, 0)))
                 {
-                    using (var command = new SqlCommand("MovieTheater.CreateShowing", connection))
+                    using (var connection = new SqlConnection(connectionString))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        connection.Open();
-                        foreach (Showing s in showings)
+                        using (var command = new SqlCommand("MovieTheater.CreateShowing", connection))
                         {
+                            command.CommandType = CommandType.StoredProcedure;
+                            connection.Open();
                             //Console.WriteLine("Adding showing with movie" + s.MovieID);
                             command.Parameters.Clear();
                             command.Parameters.AddWithValue("MovieID", s.MovieID);
@@ -197,8 +197,8 @@ namespace DatabaseTest
                             command.Parameters.AddWithValue("TicketPrice", s.TicketPrice);
                             var p = command.Parameters.Add("ShowingID", SqlDbType.Int);
                             p.Direction = ParameterDirection.Output;
-                            command.ExecuteNonQuery();                         
-                            s.ShowingID = (int)command.Parameters["ShowingID"].Value;                                                    
+                            command.ExecuteNonQuery();
+                            s.ShowingID = (int)command.Parameters["ShowingID"].Value;
                         }
                         transaction.Complete();
                     }
@@ -340,6 +340,9 @@ namespace DatabaseTest
             Console.WriteLine("Returning Employees");
             return employees;
         }
+
+
+
 
     }
 }
