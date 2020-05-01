@@ -38,6 +38,8 @@ namespace DataAccessDemo.Data
             //LoadShowings(connectionString, movies, theaters, employees);
 
             IReadOnlyList<Showing> showings = GetShowings(connectionString);
+
+            LoadEmployeeShowings(showings, employees, connectionString);
         }
 
         static void LoadMovies(string connectionString)
@@ -227,11 +229,12 @@ namespace DataAccessDemo.Data
 
         static void LoadEmployeeShowings(IReadOnlyList<Showing> showings, IReadOnlyList<Employee> employees, string connectionString)
         {
+            Console.WriteLine("Loading EmployeeShowings");
             Random r = new Random();
             foreach (Showing s in showings)
             {
                 List<Employee> validEmployees = new List<Employee>();
-                foreach (Employee e in validEmployees)
+                foreach (Employee e in employees)
                     if (e.HiredDate < s.StartTime && (e.TerminatedDate == null || e.TerminatedDate > s.StartTime))
                         validEmployees.Add(e);
 
@@ -240,6 +243,7 @@ namespace DataAccessDemo.Data
                     g = validEmployees.Count;
                 for (int c = 0; c < g; c++)
                 {
+                    //Console.WriteLine("Begining Insert " + s.ShowingID);
                     using (var transaction = new TransactionScope())
                     {
                         using (var connection = new SqlConnection(connectionString))
@@ -248,15 +252,18 @@ namespace DataAccessDemo.Data
                             {
                                 command.CommandType = CommandType.StoredProcedure;
                                 connection.Open();
-                                command.Parameters.AddWithValue("EmployeeID", validEmployees.ElementAt<Employee>(r.Next(0, validEmployees.Count)).EmployeeID);
+                                int temp = validEmployees.ElementAt<Employee>(r.Next(0, validEmployees.Count)).EmployeeID;
                                 command.Parameters.AddWithValue("ShowingID", s.ShowingID);
+                                command.Parameters.AddWithValue("EmployeeID", temp);                          
                                 command.ExecuteNonQuery();
                                 transaction.Complete();
+                                //Console.WriteLine("Finished Insert " + s.ShowingID);
                             }
                         }
                     }
                 }
             }
+            Console.WriteLine("Finished loading EmployeeShowings");
         }
 
         static IReadOnlyList<Movie> GetMovies(string connectionString)
@@ -393,16 +400,16 @@ namespace DataAccessDemo.Data
                         while (reader.Read())
                         {
                             Showing s = new Showing();
-                            var ordinal = reader.GetOrdinal("ShowingID");
+                            int ordinal = reader.GetOrdinal("ShowingID");
                             s.ShowingID = reader.GetInt32(ordinal);
                             ordinal = reader.GetOrdinal("MovieID");
                             s.MovieID = reader.GetInt32(ordinal);
                             ordinal = reader.GetOrdinal("TheaterID");
                             s.TheaterID = reader.GetInt32(ordinal);
                             ordinal = reader.GetOrdinal("StartTime");
-                            s.StartTime = reader.GetDateTime(ordinal);
+                            s.StartTime = reader.GetDateTimeOffset(ordinal).DateTime;
                             ordinal = reader.GetOrdinal("EndTime");
-                            s.EndTime = reader.GetDateTime(ordinal);
+                            s.EndTime = reader.GetDateTimeOffset(ordinal).DateTime;
                             ordinal = reader.GetOrdinal("TicketsPurchased");
                             s.TicketsPurchased = reader.GetInt32(ordinal);
                             ordinal = reader.GetOrdinal("TicketPrice");
