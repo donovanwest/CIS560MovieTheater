@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DatabaseTest
 {
-    
+
     public class Movie
     {
         //static string[] valid = { "G", "PG", "PG-13", "R", "NC-17", "Not Rated" };
@@ -15,6 +15,7 @@ namespace DatabaseTest
         public Nullable<Int64> Worldwide_Gross { get; set; }
         public string Release_Date { get; set; }
         public string MPAA_Rating { get; set; }
+        public int MovieID { get; set; }
         /*
         public string MPAA_Rating
         {
@@ -31,7 +32,7 @@ namespace DatabaseTest
             */
         public Nullable<int> Rotten_Tomatoes_Rating { get; set; }
         public string Director { get; set; }
-        
+
 
         public Movie(int MovieID, string title, Nullable<Int64> worldwide_Gross, string release_Date, string MPAA_Rating, Nullable<int> rotten_Tomatoes_Rating, string director)
         {
@@ -41,7 +42,8 @@ namespace DatabaseTest
             this.MPAA_Rating = MPAA_Rating;
             Rotten_Tomatoes_Rating = rotten_Tomatoes_Rating;
             Director = director;
-           // Convert.ToDateTime(release_Date);
+            // Convert.ToDateTime(release_Date);
         }
+        public Movie() { }
     }
 }
