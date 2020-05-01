@@ -20,7 +20,7 @@ namespace DataAccessDemo.Data
         {
 
             Console.WriteLine("Start");
-            ///ConnectionString
+            //ConnectionString
             string connectionString;
             ///ConnectionString Initializaion password hiding.
             {
@@ -45,7 +45,7 @@ namespace DataAccessDemo.Data
                 Console.WriteLine(s);
             Console.WriteLine("Done");
             Console.ReadKey();*/
-            Queries.InsertShowing(connectionString, 100, 5, 100, new DateTime(1969,4,20, 4,20,0), new DateTime(1969, 4, 20, 5, 20, 0), 69, 10);
+            //Queries.InsertShowing(connectionString, 100, 5, 100, new DateTime(1969,4,20, 4,20,0), new DateTime(1969, 4, 20, 5, 20, 0), 69, 10);
         }
 
         static void LoadMovies(string connectionString)
