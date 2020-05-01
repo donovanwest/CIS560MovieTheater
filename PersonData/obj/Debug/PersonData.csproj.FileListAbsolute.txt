@@ -7,3 +7,5 @@ C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonData\obj\Debug\PersonData.
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonData\obj\Debug\PersonData.csproj.CopyComplete
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonData\obj\Debug\PersonData.dll
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonData\obj\Debug\PersonData.pdb
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonData\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonData\bin\Debug\Newtonsoft.Json.xml

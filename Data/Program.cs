@@ -35,7 +35,9 @@ namespace DataAccessDemo.Data
             IReadOnlyList<Theater> theaters = GetTheaters(connectionString);
             IReadOnlyList<Employee> employees = GetEmployees(connectionString);
 
-            LoadShowings(connectionString, movies, theaters, employees);
+            //LoadShowings(connectionString, movies, theaters, employees);
+
+            IReadOnlyList<Showing> showings = GetShowings(connectionString);
         }
 
         static void LoadMovies(string connectionString)
@@ -205,6 +207,7 @@ namespace DataAccessDemo.Data
             }
             Console.WriteLine("Showings uploaded");
             Console.WriteLine("Loading EmployeeShowing");
+            /*
             foreach (Showing s in showings)
             {
                 List<Employee> validEmployees = new List<Employee>();
@@ -219,22 +222,38 @@ namespace DataAccessDemo.Data
                     AddEmployeeShowing(s.ShowingID, validEmployees.ElementAt<Employee>(r.Next(0, validEmployees.Count)).EmployeeID, connectionString);
             }
             Console.WriteLine("EmployeeShowings loaded");
+            */
         }
 
-        static void AddEmployeeShowing(int ShowingID, int EmployeeID, string connectionString)
+        static void LoadEmployeeShowings(IReadOnlyList<Showing> showings, IReadOnlyList<Employee> employees, string connectionString)
         {
-            using (var transaction = new TransactionScope())
+            Random r = new Random();
+            foreach (Showing s in showings)
             {
-                using (var connection = new SqlConnection(connectionString))
+                List<Employee> validEmployees = new List<Employee>();
+                foreach (Employee e in validEmployees)
+                    if (e.HiredDate < s.StartTime && (e.TerminatedDate == null || e.TerminatedDate > s.StartTime))
+                        validEmployees.Add(e);
+
+                int g = r.Next(1, 3);
+                if (validEmployees.Count < g)
+                    g = validEmployees.Count;
+                for (int c = 0; c < g; c++)
                 {
-                    using (var command = new SqlCommand("MovieTheater.CreateEmployeeShowing", connection))
+                    using (var transaction = new TransactionScope())
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        connection.Open();
-                        command.Parameters.AddWithValue("EmployeeID", EmployeeID);
-                        command.Parameters.AddWithValue("ShowingID", ShowingID);
-                        command.ExecuteNonQuery();
-                        transaction.Complete();
+                        using (var connection = new SqlConnection(connectionString))
+                        {
+                            using (var command = new SqlCommand("MovieTheater.CreateEmployeeShowing", connection))
+                            {
+                                command.CommandType = CommandType.StoredProcedure;
+                                connection.Open();
+                                command.Parameters.AddWithValue("EmployeeID", validEmployees.ElementAt<Employee>(r.Next(0, validEmployees.Count)).EmployeeID);
+                                command.Parameters.AddWithValue("ShowingID", s.ShowingID);
+                                command.ExecuteNonQuery();
+                                transaction.Complete();
+                            }
+                        }
                     }
                 }
             }
@@ -258,16 +277,23 @@ namespace DataAccessDemo.Data
                         {
 
                             Movie m = new Movie();
-                            m.MovieID = reader.GetInt32("MovieID");
-                            m.Title = reader.GetString("Title");
-                            if (!reader.IsDBNull("Director"))
-                                m.Director = reader.GetString("Director");
-                            m.MPAA_Rating = reader.GetString("MPAA_Rating");
-                            if (!reader.IsDBNull("RottenTomatoesRating"))
-                                m.Rotten_Tomatoes_Rating = reader.GetInt32("RottenTomatoesRating");
-                            m.Release_Date = reader.GetDateTime("ReleaseDate").ToString();
-                            if (!reader.IsDBNull("WorldwideGross"))
-                                m.Worldwide_Gross = reader.GetInt64("WorldwideGross");
+                            var ordinal = reader.GetOrdinal("MovieID");
+                            m.MovieID = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("Title");
+                            m.Title = reader.GetString(ordinal);
+                            ordinal = reader.GetOrdinal("Director");
+                            if (!reader.IsDBNull(ordinal))
+                                m.Director = reader.GetString(ordinal);
+                            ordinal = reader.GetOrdinal("MPAA_Rating");
+                            m.MPAA_Rating = reader.GetString(ordinal);
+                            ordinal = reader.GetOrdinal("RottenTomatoesRating");
+                            if (!reader.IsDBNull(ordinal))
+                                m.Rotten_Tomatoes_Rating = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("ReleaseDate");
+                            m.Release_Date = reader.GetDateTime(ordinal).ToString();
+                            ordinal = reader.GetOrdinal("WorldwideGross");
+                            if (!reader.IsDBNull(ordinal))
+                                m.Worldwide_Gross = reader.GetInt64(ordinal);
                             movies.Add(m);
                         }
                     }
@@ -294,10 +320,14 @@ namespace DataAccessDemo.Data
                         while (reader.Read())
                         {
                             Theater t = new Theater();
-                            t.TheaterID = reader.GetInt32("TheaterID");
-                            t.Capacity = reader.GetInt32("Capacity");
-                            t.HandicapAccesible = reader.GetBoolean("HandicapAccessible");
-                            t.DineIn = reader.GetBoolean("DineIn");
+                            var ordinal = reader.GetOrdinal("TheaterID");
+                            t.TheaterID = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("Capacity");
+                            t.Capacity = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("HandicapAccessible");
+                            t.HandicapAccesible = reader.GetBoolean(ordinal);
+                            ordinal = reader.GetOrdinal("DineIn");
+                            t.DineIn = reader.GetBoolean(ordinal);
                             theaters.Add(t);
                         }
                     }
@@ -324,13 +354,19 @@ namespace DataAccessDemo.Data
                         while (reader.Read())
                         {
                             Employee e = new Employee();
-                            e.EmployeeID = reader.GetInt32("EmployeeID");
-                            e.HourlyPay = reader.GetDouble("HourlyPay");
-                            e.FirstName = reader.GetString("FirstName");
-                            e.LastName = reader.GetString("LastName");
-                            e.HiredDate = reader.GetDateTime("HiredDate");
-                            if (!reader.IsDBNull("TerminatedDate"))
-                                e.TerminatedDate = reader.GetDateTime("TerminatedDate");
+                            var ordinal = reader.GetOrdinal("EmployeeID");
+                            e.EmployeeID = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("HourlyPay");
+                            e.HourlyPay = reader.GetDouble(ordinal);
+                            ordinal = reader.GetOrdinal("FirstName");
+                            e.FirstName = reader.GetString(ordinal);
+                            ordinal = reader.GetOrdinal("LastName");
+                            e.LastName = reader.GetString(ordinal);
+                            ordinal = reader.GetOrdinal("HiredDate");
+                            e.HiredDate = reader.GetDateTime(ordinal);
+                            ordinal = reader.GetOrdinal("TerminatedDate");
+                            if (!reader.IsDBNull(ordinal))
+                                e.TerminatedDate = reader.GetDateTime(ordinal);
                             employees.Add(e);
                         }
                     }
@@ -340,7 +376,45 @@ namespace DataAccessDemo.Data
             return employees;
         }
 
+        static IReadOnlyList<Showing> GetShowings(string connectionString)
+        {
+            Console.WriteLine("Getting Showings");
+            List<Showing> showings = new List<Showing>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand("MovieTheater.GetShowings", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
 
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Showing s = new Showing();
+                            var ordinal = reader.GetOrdinal("ShowingID");
+                            s.ShowingID = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("MovieID");
+                            s.MovieID = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("TheaterID");
+                            s.TheaterID = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("StartTime");
+                            s.StartTime = reader.GetDateTime(ordinal);
+                            ordinal = reader.GetOrdinal("EndTime");
+                            s.EndTime = reader.GetDateTime(ordinal);
+                            ordinal = reader.GetOrdinal("TicketsPurchased");
+                            s.TicketsPurchased = reader.GetInt32(ordinal);
+                            ordinal = reader.GetOrdinal("TicketPrice");
+                            s.TicketPrice = reader.GetDouble(ordinal);
+                            showings.Add(s);
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Returning Showings");
+            return showings;
+        }
 
 
     }

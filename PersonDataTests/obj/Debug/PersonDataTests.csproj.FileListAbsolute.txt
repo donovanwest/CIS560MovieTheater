@@ -16,3 +16,5 @@ C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\obj\Debug\Person
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Donovan\Documents\Code\DataAccessDemo2\PersonDataTests\bin\Debug\Newtonsoft.Json.xml
