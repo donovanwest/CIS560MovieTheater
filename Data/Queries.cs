@@ -10,7 +10,7 @@ namespace DataAccessDemo.Data
 {
     public static class Queries
     {
-
+        //DONE
         public static IReadOnlyList<String> SearchForMovieByTitle(string connectionString, string title)
         {
             List<String> items = new List<string>();
@@ -54,7 +54,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> SearchForEmployeeByName(string connectionString, string firstName, string lastName)
         {
             List<String> items = new List<string>();
@@ -96,7 +96,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> SearchForTheaterByID(string connectionString, int theaterID)
         {
             List<String> items = new List<string>();
@@ -129,7 +129,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> SearchForShowingsByTitle(string connectionString, string title)
         {
             List<String> items = new List<string>();
@@ -168,7 +168,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> TopTenRatedMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -203,7 +203,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> HighestGrossingShows(string connectionString)
         {
             List<String> items = new List<string>();
@@ -240,7 +240,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> HighestPaidEmployees(string connectionString)
         {
             List<String> items = new List<string>();
@@ -275,7 +275,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> TheaterAmmenities(string connectionString)
         {
             List<String> items = new List<string>();
@@ -306,7 +306,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> OldestMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -335,7 +335,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> RecentMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -366,6 +366,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
+        //DONE
         public static IReadOnlyList<String> MostProfitableMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -402,7 +403,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> MostPaidEmployees(string connectionString)
         {
             List<String> items = new List<string>();
@@ -437,7 +438,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        //DONE
         public static IReadOnlyList<String> MostShowingsPerDirector(string connectionString)
         {
             List<String> items = new List<string>();
@@ -468,6 +469,7 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
+        //DONE
         public static IReadOnlyList<String> ProfitLostFromEmptySeats(string connectionString)
         {
             List<String> items = new List<string>();

@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccessDemo.Data;
 
 namespace Menu
 {
@@ -18,6 +19,12 @@ namespace Menu
         public NewestMovie()
         {
             InitializeComponent();
+            IReadOnlyList<String> items = Queries.RecentMovies("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=Donnybob185;");
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                YourListBox.Items.Add(items[i]);
+            }
         }
     }
 }

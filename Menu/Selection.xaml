@@ -13,24 +13,24 @@
         </Grid.ColumnDefinitions>
         <StackPanel  Grid.Column="0">
 
-            <Button Name = "TodayShowings" Tag="TodayShow">Today's Showings</Button>
+            <Button Name = "SearchForMovieByTitle" Tag="SearchForMovieByTitle">Search For Movie By Title</Button>
             <Button Name = "NewestMovie" Tag="NewestMovie">Newest Movies Out</Button>
             <Button Name = "Topten" Tag="Topten">Top Ten Movies</Button>
-            <Button Name = "FullTheaters" Tag="FullTheaters">Full Theaters</Button>
+            <Button Name = "HighestGrossingShows" Tag="HighestGrossingShows">Highest Grossing Shows</Button>
             <Button Name = "HighestPaidEmployees" Tag="HighestPaidEmployees">Highest Paid Employees</Button>
-            <Button Name = "DirectorsLongestMovies" Tag="DirectorsLongestMovies">Directors With Longest Movies</Button>
-            <Button Name = "HandicapAccessibleTheaters" Tag="HandicapAccessibleTheaters">Handicap Accessible Theaters</Button>
+            <Button Name = "SearchForShowingsByTitle" Tag="SearchForShowingsByTitle">Search For Showings By Title</Button>
+            <Button Name = "TheaterAmmenities" Tag="TheaterAmmenities">Theater Ammenities</Button>
             
         </StackPanel>
         <StackPanel  Grid.Column="1">
 
-            <Button Name = "EmployeesNotWorking" Tag="EmployeesNotWorking">Employees Not Working</Button>
+            <Button Name = "SearchForTheaterByID" Tag="SearchForTheaterByID">Search For Theater By ID</Button>
             <Button Name = "OldestMovies" Tag="OldestMovies">Oldest Movies</Button>
             <Button Name = "MostProfits" Tag="MostProfits">Most Profits</Button>
             <Button Name = "MostTotalPay" Tag="MostTotalPay">Employee With Most Total Pay</Button>
             <Button Name = "DirectorsMostShowing" Tag="DirectorsMostShowing">Directors Who Get The Most Showings</Button>
             <Button Name = "ProfitsLost" Tag="ProfitsLost">Profits Lost On Empty Seats</Button>
-            <Button Name = "AllEmployees" Tag="AllEmployees">All Employees</Button>
+            <Button Name = "SearchForEmployeeByName" Tag="SearchForEmployeeByName">Search For Employee By Name</Button>
         </StackPanel>
 
     </Grid>

@@ -32,27 +32,27 @@ namespace Menu
 
 
 
-            TodayShowings.Click += OnTodayShowingsClicked;
+            SearchForMovieByTitle.Click += OnSearchForMovieByTitleClicked;
             NewestMovie.Click += OnNewestMovieClicked;
             Topten.Click += OnToptenClicked;
-            FullTheaters.Click += OnFullTheatersClicked;
+            HighestGrossingShows.Click += OnHighestGrossingShowsClicked;
             HighestPaidEmployees.Click += OnHighestPaidEmployeesClicked;
-            DirectorsLongestMovies.Click += OnDirectorsLongestMoviesClicked;
-            HandicapAccessibleTheaters.Click += OnHandicapAccessibleTheatersClicked;
-            EmployeesNotWorking.Click += OnEmployeesNotWorkingClicked;
+            SearchForShowingsByTitle.Click += OnSearchForShowingsByTitleClicked;
+            TheaterAmmenities.Click += OnTheaterAmmenitiesClicked;
+            SearchForTheaterByID.Click += OnSearchForTheaterByIDClicked;
             OldestMovies.Click += OnOldestMoviesClicked;
             MostProfits.Click += OnMostProfitsClicked;
             MostTotalPay.Click += OnMostTotalPayClicked;
             DirectorsMostShowing.Click += OnDirectorsMostShowingClicked;
             ProfitsLost.Click += OnProfitsLostClicked;
-            AllEmployees.Click += OnAllEmployeesClicked;
+            SearchForEmployeeByName.Click += OnSearchForEmployeeByNameClicked;
         }
         
             
-            void OnTodayShowingsClicked(object sender, RoutedEventArgs e)
+            void OnSearchForMovieByTitleClicked(object sender, RoutedEventArgs e)
             {
             orderControl = this.FindAncestor<OrderControl>();
-            orderControl.SwapScreen(new TodayShowings());
+            orderControl.SwapScreen(new SearchForMovieByTitle());
 
             }
 
@@ -68,10 +68,10 @@ namespace Menu
             orderControl.SwapScreen(new Topten());
 
         }
-        void OnFullTheatersClicked(object sender, RoutedEventArgs e)
+        void OnHighestGrossingShowsClicked(object sender, RoutedEventArgs e)
         {
             orderControl = this.FindAncestor<OrderControl>();
-            orderControl.SwapScreen(new FullTheaters());
+            orderControl.SwapScreen(new HighestGrossingShows());
 
         }
         void OnHighestPaidEmployeesClicked(object sender, RoutedEventArgs e)
@@ -80,22 +80,22 @@ namespace Menu
             orderControl.SwapScreen(new HighestPaidEmployees());
 
         }
-        void OnDirectorsLongestMoviesClicked(object sender, RoutedEventArgs e)
+        void OnSearchForShowingsByTitleClicked(object sender, RoutedEventArgs e)
         {
             orderControl = this.FindAncestor<OrderControl>();
-            orderControl.SwapScreen(new DirectorsLongestMovies());
+            orderControl.SwapScreen(new SearchForShowingsByTitle());
 
         }
-        void OnHandicapAccessibleTheatersClicked(object sender, RoutedEventArgs e)
+        void OnTheaterAmmenitiesClicked(object sender, RoutedEventArgs e)
         {
             orderControl = this.FindAncestor<OrderControl>();
-            orderControl.SwapScreen(new HandicapAccessibleTheaters());
+            orderControl.SwapScreen(new TheaterAmmenities());
 
         }
-        void OnEmployeesNotWorkingClicked(object sender, RoutedEventArgs e)
+        void OnSearchForTheaterByIDClicked(object sender, RoutedEventArgs e)
         {
             orderControl = this.FindAncestor<OrderControl>();
-            orderControl.SwapScreen(new EmployeesNotWorking());
+            orderControl.SwapScreen(new SearchForTheaterByID());
 
         }
         void OnOldestMoviesClicked(object sender, RoutedEventArgs e)
@@ -129,11 +129,11 @@ namespace Menu
 
         }
 
-        void OnAllEmployeesClicked(object sender, RoutedEventArgs e)
+        void OnSearchForEmployeeByNameClicked(object sender, RoutedEventArgs e)
         {
             
             orderControl = this.FindAncestor<OrderControl>();
-            orderControl.SwapScreen(new AllEmployees());
+            orderControl.SwapScreen(new SearchForEmployeeByName());
 
         }
 
