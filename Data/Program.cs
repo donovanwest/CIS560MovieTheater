@@ -31,13 +31,19 @@ namespace DataAccessDemo.Data
             //LoadTheaters(connectionString);
             //LoadEmployees(connectionString);
 
-            IReadOnlyList<Movie> movies = GetMovies(connectionString);
-            IReadOnlyList<Theater> theaters = GetTheaters(connectionString);
-            IReadOnlyList<Employee> employees = GetEmployees(connectionString);
+            //IReadOnlyList<Movie> movies = GetMovies(connectionString);
+            //IReadOnlyList<Theater> theaters = GetTheaters(connectionString);
+            //IReadOnlyList<Employee> employees = GetEmployees(connectionString);
 
             //LoadShowings(connectionString, movies, theaters, employees);
 
-            IReadOnlyList<Showing> showings = GetShowings(connectionString);
+            //IReadOnlyList<Showing> showings = GetShowings(connectionString);
+            //IReadOnlyList<Movie> movies = Queries.SearchForMovieByTitle(connectionString, "Jumanji");
+            IReadOnlyList<string> items = Queries.OldestMovies(connectionString);
+            foreach (string s in items)
+                Console.WriteLine(s);
+            Console.WriteLine("Done");
+            Console.ReadKey();
         }
 
         static void LoadMovies(string connectionString)
