@@ -30,6 +30,7 @@
             <Button Name = "MostTotalPay" Tag="MostTotalPay">Employee With Most Total Pay</Button>
             <Button Name = "DirectorsMostShowing" Tag="DirectorsMostShowing">Directors Who Get The Most Showings</Button>
             <Button Name = "ProfitsLost" Tag="ProfitsLost">Profits Lost On Empty Seats</Button>
+            <Button Name = "AllEmployees" Tag="AllEmployees">All Employees</Button>
         </StackPanel>
 
     </Grid>

@@ -4,7 +4,7 @@ using System.Text;
 using DataAccess;
 using System.Numerics;
 
-namespace DatabaseTest
+namespace DataAccessDemo.Data
 {
     public class MovieRepo
     {

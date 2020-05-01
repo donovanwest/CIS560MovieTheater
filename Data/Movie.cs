@@ -5,7 +5,7 @@ using System.Numerics;
 using System.IO;
 using System.Linq;
 
-namespace DatabaseTest
+namespace DataAccessDemo.Data
 {
 
     public class Movie

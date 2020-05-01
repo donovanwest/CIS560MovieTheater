@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieTheaterData
+namespace DataAccessDemo.Data
 {
     public class Showing
     {

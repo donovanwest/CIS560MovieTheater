@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Menu.Extentions;
+using DataAccessDemo.Data;
 
 
 namespace Menu
@@ -44,6 +45,7 @@ namespace Menu
             MostTotalPay.Click += OnMostTotalPayClicked;
             DirectorsMostShowing.Click += OnDirectorsMostShowingClicked;
             ProfitsLost.Click += OnProfitsLostClicked;
+            AllEmployees.Click += OnAllEmployeesClicked;
         }
         
             
@@ -124,6 +126,14 @@ namespace Menu
         {
             orderControl = this.FindAncestor<OrderControl>();
             orderControl.SwapScreen(new ProfitsLost());
+
+        }
+
+        void OnAllEmployeesClicked(object sender, RoutedEventArgs e)
+        {
+            
+            orderControl = this.FindAncestor<OrderControl>();
+            orderControl.SwapScreen(new AllEmployees());
 
         }
 

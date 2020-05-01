@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
-using MovieTheaterData;
+//using MovieTheaterData;
 using System.Data;
 using System.Data.SqlClient;
 using DatabaseTest;
@@ -13,7 +13,7 @@ using System.Transactions;
 
 namespace DataAccessDemo.Data
 {
-    class Program
+    public class Program
     {
         static string[] valid = { "G", "PG", "PG-13", "R", "NC-17", "Not Rated" };
         static void Main(string[] args)
@@ -337,7 +337,7 @@ namespace DataAccessDemo.Data
             return theaters;
         }
 
-        static IReadOnlyList<Employee> GetEmployees(string connectionString)
+        public static IReadOnlyList<Employee> GetEmployees(string connectionString)
         {
             Console.WriteLine("Getting Employees");
             List<Employee> employees = new List<Employee>();
