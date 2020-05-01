@@ -39,7 +39,7 @@ namespace DataAccessDemo.Data
 
             //IReadOnlyList<Showing> showings = GetShowings(connectionString);
             //IReadOnlyList<Movie> movies = Queries.SearchForMovieByTitle(connectionString, "Jumanji");
-            IReadOnlyList<string> items = Queries.OldestMovies(connectionString);
+            IReadOnlyList<string> items = Queries.ProfitLostFromEmptySeats(connectionString);
             foreach (string s in items)
                 Console.WriteLine(s);
             Console.WriteLine("Done");
