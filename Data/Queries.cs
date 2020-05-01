@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Transactions;
 
 namespace DataAccessDemo.Data
 {
@@ -46,7 +47,7 @@ namespace DataAccessDemo.Data
                             i += reader.GetDateTime(ordinal).ToString() + "|";
                             ordinal = reader.GetOrdinal("WorldwideGross");
                             if (!reader.IsDBNull(ordinal))
-                                i += reader.GetInt64(ordinal);                            
+                                i += reader.GetInt64(ordinal);
                             items.Add(i);
                         }
                     }
@@ -88,7 +89,7 @@ namespace DataAccessDemo.Data
                                 i += reader.GetDateTime(ordinal) + "|";
                             else i += "|";
                             ordinal = reader.GetOrdinal("HiredDate");
-                            i += reader.GetDateTime(ordinal).ToString();                          
+                            i += reader.GetDateTime(ordinal).ToString();
                             items.Add(i);
                         }
                     }
@@ -118,10 +119,10 @@ namespace DataAccessDemo.Data
                             i += reader.GetInt32(ordinal) + "|";
                             ordinal = reader.GetOrdinal("Capacity");
                             i += reader.GetInt32(ordinal).ToString() + "|";
-                            ordinal = reader.GetOrdinal("HandicapAccessible");                          
-                            i += reader.GetBoolean(ordinal) + "|";                          
+                            ordinal = reader.GetOrdinal("HandicapAccessible");
+                            i += reader.GetBoolean(ordinal) + "|";
                             ordinal = reader.GetOrdinal("DineIn");
-                            i += reader.GetBoolean(ordinal);                         
+                            i += reader.GetBoolean(ordinal);
                             items.Add(i);
                         }
                     }
@@ -267,7 +268,7 @@ namespace DataAccessDemo.Data
                             ordinal = reader.GetOrdinal("TerminatedDate");
                             if (!reader.IsDBNull(ordinal))
                                 i += reader.GetDateTime(ordinal).ToString();
-                                                   
+
                             items.Add(i);
                         }
                     }
@@ -298,7 +299,7 @@ namespace DataAccessDemo.Data
                             ordinal = reader.GetOrdinal("HandicapAccessible");
                             i += reader.GetBoolean(ordinal) + "|";
                             ordinal = reader.GetOrdinal("DineIn");
-                            i += reader.GetBoolean(ordinal);                    
+                            i += reader.GetBoolean(ordinal);
                             items.Add(i);
                         }
                     }
@@ -327,7 +328,7 @@ namespace DataAccessDemo.Data
                             ordinal = reader.GetOrdinal("ReleaseDate");
                             i += reader.GetDateTime(ordinal).ToString() + "|";
                             ordinal = reader.GetOrdinal("FirstShowing");
-                            i += reader.GetDateTimeOffset(ordinal).ToString();                          
+                            i += reader.GetDateTimeOffset(ordinal).ToString();
                             items.Add(i);
                         }
                     }
@@ -358,7 +359,7 @@ namespace DataAccessDemo.Data
                             ordinal = reader.GetOrdinal("TheaterID");
                             i += reader.GetInt32(ordinal) + "|";
                             ordinal = reader.GetOrdinal("TicketsAvailiable");
-                            i += reader.GetInt32(ordinal);                           
+                            i += reader.GetInt32(ordinal);
                             items.Add(i);
                         }
                     }
@@ -395,7 +396,7 @@ namespace DataAccessDemo.Data
                             ordinal = reader.GetOrdinal("PercentageOfWorldWideSales");
                             if (!reader.IsDBNull(ordinal))
                                 i += reader.GetDouble(ordinal).ToString();
-                          
+
                             items.Add(i);
                         }
                     }
@@ -461,7 +462,7 @@ namespace DataAccessDemo.Data
                             ordinal = reader.GetOrdinal("TotalShowings");
                             i += reader.GetInt32(ordinal).ToString() + "|";
                             ordinal = reader.GetOrdinal("GrossProfits");
-                            i += reader.GetDouble(ordinal).ToString() ;                           
+                            i += reader.GetDouble(ordinal).ToString();
                             items.Add(i);
                         }
                     }
@@ -490,13 +491,62 @@ namespace DataAccessDemo.Data
                             ordinal = reader.GetOrdinal("AverageEmptySeatsPerShowing");
                             i += reader.GetInt32(ordinal).ToString() + "|";
                             ordinal = reader.GetOrdinal("AverageMoneyLostPerShowing");
-                            i += reader.GetDouble(ordinal).ToString();                           
+                            i += reader.GetDouble(ordinal).ToString();
                             items.Add(i);
                         }
                     }
                 }
             }
             return items;
+        }
+
+        public static void InsertEmployee(string connectionString, double hourlyPay, string firstName, string lastName, DateTime hiredDate)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("MovieTheater.CreateNewEmployee", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        connection.Open();
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("HourlyPay", hourlyPay);
+                        command.Parameters.AddWithValue("FirstName", firstName);
+                        command.Parameters.AddWithValue("LastName", lastName);
+                        command.Parameters.AddWithValue("HiredDate", hiredDate);
+                        //command.Parameters.AddWithValue("TerminatedDate", null);
+                        command.ExecuteNonQuery();
+                        command.Parameters.Clear();
+                        transaction.Complete();
+                    }
+                }
+            }
+        }
+
+        public static void InsertShowing(string connectionString, int employeeID, int theaterID, int movieID, DateTime startTime, DateTime endTime, int ticketsPurchased, double ticketPrice)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    using (var command = new SqlCommand("MovieTheater.CreateNewShowing", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        connection.Open();
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("MovieID", movieID);
+                        command.Parameters.AddWithValue("StartTime", startTime);
+                        command.Parameters.AddWithValue("EndTime", endTime);
+                        command.Parameters.AddWithValue("TicketsPurchased", ticketsPurchased);
+                        command.Parameters.AddWithValue("TicketPrice", ticketPrice);
+                        command.Parameters.AddWithValue("TheaterID", theaterID);
+                        command.ExecuteNonQuery();
+                        command.Parameters.Clear();
+                        transaction.Complete();
+                    }
+                }
+            }
         }
     }
 }

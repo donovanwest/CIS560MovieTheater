@@ -39,11 +39,13 @@ namespace DataAccessDemo.Data
 
             //IReadOnlyList<Showing> showings = GetShowings(connectionString);
             //IReadOnlyList<Movie> movies = Queries.SearchForMovieByTitle(connectionString, "Jumanji");
+            /*
             IReadOnlyList<string> items = Queries.ProfitLostFromEmptySeats(connectionString);
             foreach (string s in items)
                 Console.WriteLine(s);
             Console.WriteLine("Done");
-            Console.ReadKey();
+            Console.ReadKey();*/
+            Queries.InsertShowing(connectionString, 100, 5, 100, new DateTime(1969,4,20, 4,20,0), new DateTime(1969, 4, 20, 5, 20, 0), 69, 10);
         }
 
         static void LoadMovies(string connectionString)
