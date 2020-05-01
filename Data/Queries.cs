@@ -56,6 +56,46 @@ namespace DataAccessDemo.Data
         }
 
         public static IReadOnlyList<String> SearchForEmployeeByName(string connectionString, string firstName, string lastName)
+        {
+            List<String> items = new List<string>();
+            items.Add("EmployeeID|HourlyPay|FirstName|Lastname|HiredDate|TerminatedDate");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand("MovieTheater.SearchForEmployeeByName", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("FirstName", firstName);
+                    command.Parameters.AddWithValue("LastName", lastName);
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            string i = "";
+                            var ordinal = reader.GetOrdinal("EmployeeID");
+                            i += reader.GetInt32(ordinal) + "|";
+                            ordinal = reader.GetOrdinal("HourlyPay");
+                            i += reader.GetDouble(ordinal).ToString() + "|";
+                            ordinal = reader.GetOrdinal("FirstName");
+                            if (!reader.IsDBNull(ordinal))
+                                i += reader.GetString(ordinal) + "|";
+                            else i += "|";
+                            ordinal = reader.GetOrdinal("LastName");
+                            i += reader.GetString(ordinal) + "|";
+                            ordinal = reader.GetOrdinal("TerminatedDate");
+                            if (!reader.IsDBNull(ordinal))
+                                i += reader.GetDateTime(ordinal) + "|";
+                            else i += "|";
+                            ordinal = reader.GetOrdinal("HiredDate");
+                            i += reader.GetDateTime(ordinal).ToString();                          
+                            items.Add(i);
+                        }
+                    }
+                }
+            }
+            return items;
+        }
 
         public static IReadOnlyList<String> SearchForTheaterByID(string connectionString, int theaterID)
         {
