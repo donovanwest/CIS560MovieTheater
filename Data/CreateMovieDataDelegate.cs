@@ -5,7 +5,8 @@ using DataAccess;
 using System.Data;
 using System.Data.SqlClient;
 using System.Numerics;
-namespace DatabaseTest
+//using DataAccessDemmo.Data;
+namespace DataAccessDemo.Data
 {
     internal class CreateMovieDataDelegate : NonQueryDataDelegate<Movie>
     {
