@@ -67,6 +67,9 @@
     <Compile Include="Windows\SearchForMovieByTitle.xaml.cs">
       <DependentUpon>SearchForMovieByTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\InsertNewEmployee.xaml.cs">
+      <DependentUpon>InsertNewEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Topten.xaml.cs">
       <DependentUpon>Topten.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\DirectorsMostShowing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\InsertNewEmployee.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

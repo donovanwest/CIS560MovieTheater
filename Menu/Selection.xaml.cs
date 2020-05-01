@@ -46,6 +46,7 @@ namespace Menu
             DirectorsMostShowing.Click += OnDirectorsMostShowingClicked;
             ProfitsLost.Click += OnProfitsLostClicked;
             SearchForEmployeeByName.Click += OnSearchForEmployeeByNameClicked;
+            InsertNewEmployee.Click += OnInsertNewEmployeeClicked;
         }
         
             
@@ -134,6 +135,14 @@ namespace Menu
             
             orderControl = this.FindAncestor<OrderControl>();
             orderControl.SwapScreen(new SearchForEmployeeByName());
+
+        }
+
+        void OnInsertNewEmployeeClicked(object sender, RoutedEventArgs e)
+        {
+
+            orderControl = this.FindAncestor<OrderControl>();
+            orderControl.SwapScreen(new InsertNewEmployee());
 
         }
 

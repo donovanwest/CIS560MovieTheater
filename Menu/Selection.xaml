@@ -31,6 +31,7 @@
             <Button Name = "DirectorsMostShowing" Tag="DirectorsMostShowing">Directors Who Get The Most Showings</Button>
             <Button Name = "ProfitsLost" Tag="ProfitsLost">Profits Lost On Empty Seats</Button>
             <Button Name = "SearchForEmployeeByName" Tag="SearchForEmployeeByName">Search For Employee By Name</Button>
+            <Button Name = "InsertNewEmployee" Tag="InsertNewEmployee">Insert New Employee</Button>
         </StackPanel>
 
     </Grid>
