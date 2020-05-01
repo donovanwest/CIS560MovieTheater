@@ -23,6 +23,7 @@ namespace Menu
         {
             InitializeComponent();
             BackToMain.Click += BackToMainClicked;
+            //Queries.HighestGrossingShows("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=Donnybob185;");
         }
 
 

@@ -10,18 +10,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Menu.Extentions;
 using DataAccessDemo.Data;
 
 namespace Menu
 {
-    public partial class AllEmployees : UserControl
+    public partial class TheaterAmmenities : UserControl
     {
-        public AllEmployees()
+        public TheaterAmmenities()
         {
             InitializeComponent();
-        }
+            IReadOnlyList<String> items = Queries.TheaterAmmenities("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=Donnybob185;");
 
-      
+            for (int i = 0; i < items.Count; i++)
+            {
+                YourListBox.Items.Add(items[i]);
+            }
+        }
     }
 }

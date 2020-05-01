@@ -61,20 +61,20 @@
     <Compile Include="Selection.xaml.cs">
       <DependentUpon>Selection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AllEmployees.xaml.cs">
-      <DependentUpon>AllEmployees.xaml</DependentUpon>
+    <Compile Include="Windows\SearchForEmployeeByName.xaml.cs">
+      <DependentUpon>SearchForEmployeeByName.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\TodayShowings.xaml.cs">
-      <DependentUpon>TodayShowings.xaml</DependentUpon>
+    <Compile Include="Windows\SearchForMovieByTitle.xaml.cs">
+      <DependentUpon>SearchForMovieByTitle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Topten.xaml.cs">
       <DependentUpon>Topten.xaml</DependentUpon>
     </Compile>
-    <Page Include="Windows\AllEmployees.xaml">
+    <Page Include="Windows\SearchForEmployeeByName.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\DirectorsLongestMovies.xaml">
+    <Page Include="Windows\SearchForShowingsByTitle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -82,15 +82,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\EmployeesNotWorking.xaml">
+    <Page Include="Windows\SearchForTheaterByID.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\FullTheaters.xaml">
+    <Page Include="Windows\HighestGrossingShows.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\HandicapAccessibleTheaters.xaml">
+    <Page Include="Windows\TheaterAmmenities.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -106,21 +106,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Windows\DirectorsLongestMovies.xaml.cs">
-      <DependentUpon>DirectorsLongestMovies.xaml</DependentUpon>
+    <Compile Include="Windows\SearchForShowingsByTitle.xaml.cs">
+      <DependentUpon>SearchForShowingsByTitle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DirectorsMostShowing.xaml.cs">
       <DependentUpon>DirectorsMostShowing.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\EmployeesNotWorking.xaml.cs">
-      <DependentUpon>EmployeesNotWorking.xaml</DependentUpon>
+    <Compile Include="Windows\SearchForTheaterByID.xaml.cs">
+      <DependentUpon>SearchForTheaterByID.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExtentionMethods.cs" />
-    <Compile Include="Windows\FullTheaters.xaml.cs">
-      <DependentUpon>FullTheaters.xaml</DependentUpon>
+    <Compile Include="Windows\HighestGrossingShows.xaml.cs">
+      <DependentUpon>HighestGrossingShows.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\HandicapAccessibleTheaters.xaml.cs">
-      <DependentUpon>HandicapAccessibleTheaters.xaml</DependentUpon>
+    <Compile Include="Windows\TheaterAmmenities.xaml.cs">
+      <DependentUpon>TheaterAmmenities.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\HighestPaidEmployees.xaml.cs">
       <DependentUpon>HighestPaidEmployees.xaml</DependentUpon>
@@ -157,7 +157,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\TodayShowings.xaml">
+    <Page Include="Windows\SearchForMovieByTitle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
