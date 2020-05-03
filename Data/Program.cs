@@ -1,12 +1,14 @@
-﻿using System;
+﻿/*This file handles creating all the tables, and retrieving the full tables in the database
+ *It can be run with the main code uncommented to create all the tables
+ */
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
-//using MovieTheaterData;
 using System.Data;
 using System.Data.SqlClient;
-//using DatabaseTest;
 using System.Text.Json.Serialization;
 using Microsoft.VisualBasic.FileIO;
 using System.Transactions;
@@ -22,10 +24,10 @@ namespace DataAccessDemo.Data
             Console.WriteLine("Start");
             //ConnectionString
             string connectionString;
-            ///ConnectionString Initializaion password hiding.
             {
-                connectionString = "Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=Donnybob185;";
+                connectionString = "Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=We didn't know how to do this without the password, but you don't get to see it;";
             }
+            //These called all the methods to create the database
 
             //LoadMovies(connectionString);
             //LoadTheaters(connectionString);
@@ -39,15 +41,12 @@ namespace DataAccessDemo.Data
 
             //IReadOnlyList<Showing> showings = GetShowings(connectionString);
             //IReadOnlyList<Movie> movies = Queries.SearchForMovieByTitle(connectionString, "Jumanji");
-            /*
-            IReadOnlyList<string> items = Queries.ProfitLostFromEmptySeats(connectionString);
-            foreach (string s in items)
-                Console.WriteLine(s);
-            Console.WriteLine("Done");
-            Console.ReadKey();*/
-            //Queries.InsertShowing(connectionString, 100, 5, 100, new DateTime(1969,4,20, 4,20,0), new DateTime(1969, 4, 20, 5, 20, 0), 69, 10);
+            
         }
-
+        /// <summary>
+        /// Loads all the movies in from the JSON file. Uses the Data Access project, but this is the only one. 
+        /// </summary>
+        /// <param name="connectionString"></param>
         static void LoadMovies(string connectionString)
         {
             Console.WriteLine("Parsing JSON");
@@ -68,7 +67,10 @@ namespace DataAccessDemo.Data
             }
             Console.WriteLine("inserted " + items.Count + " rows");
         }
-
+        /// <summary>
+        /// Loads all the theaters from a CSV file into a list, then uses a stored procedure to insert them all
+        /// </summary>
+        /// <param name="connectionString"></param>
         static void LoadTheaters(string connectionString)
         {
             Console.WriteLine("Parsing Theaters");
@@ -109,7 +111,10 @@ namespace DataAccessDemo.Data
                 }
             }
         }
-
+        /// <summary>
+        /// Loads all the employees from a CSV file, then uses a stored procedure to insert them all
+        /// </summary>
+        /// <param name="connectionString"></param>
         static void LoadEmployees(string connectionString)
         {
             Console.WriteLine("Parsing Employees");
@@ -163,7 +168,13 @@ namespace DataAccessDemo.Data
                 }
             }
         }
-
+        /// <summary>
+        /// Loads all the Showings from a CSV file, then uses a stored procedure to insert them all
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="movies">List of all movies</param>
+        /// <param name="theaters">List of all Theaters</param>
+        /// <param name="Employees">List of all employees</param>
         static void LoadShowings(string connectionString, IReadOnlyList<Movie> movies, IReadOnlyList<Theater> theaters, IReadOnlyList<Employee> Employees)
         {
             Random r = new Random();
@@ -232,7 +243,12 @@ namespace DataAccessDemo.Data
             Console.WriteLine("EmployeeShowings loaded");
             */
         }
-
+        /// <summary>
+        /// Creates the employee showings from the showings and employees list, and inserts them using a stored procedure"
+        /// </summary>
+        /// <param name="showings"></param>
+        /// <param name="employees"></param>
+        /// <param name="connectionString"></param>
         static void LoadEmployeeShowings(IReadOnlyList<Showing> showings, IReadOnlyList<Employee> employees, string connectionString)
         {
             Random r = new Random();
@@ -266,7 +282,11 @@ namespace DataAccessDemo.Data
                 }
             }
         }
-
+        /// <summary>
+        /// Returns all columns of all the movies in the data base
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         static IReadOnlyList<Movie> GetMovies(string connectionString)
         {
             Console.WriteLine("Getting Movies");
@@ -310,7 +330,11 @@ namespace DataAccessDemo.Data
             Console.WriteLine("Returning Movies");
             return movies;
         }
-
+        /// <summary>
+        /// Returns all columns of all the theaters
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         static IReadOnlyList<Theater> GetTheaters(string connectionString)
         {
             Console.WriteLine("Getting Theaters");
@@ -344,7 +368,11 @@ namespace DataAccessDemo.Data
             Console.WriteLine("returning Theaters");
             return theaters;
         }
-
+        /// <summary>
+        /// returns all the columns of all the employees
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<Employee> GetEmployees(string connectionString)
         {
             Console.WriteLine("Getting Employees");
@@ -383,7 +411,11 @@ namespace DataAccessDemo.Data
             Console.WriteLine("Returning Employees");
             return employees;
         }
-
+        /// <summary>
+        /// returns all the columns off all the showings
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         static IReadOnlyList<Showing> GetShowings(string connectionString)
         {
             Console.WriteLine("Getting Showings");

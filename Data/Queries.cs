@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*This file handles all the other queries and uses stored procedures to call them. 
+ *The menu project calls these methods to get the lists of data it needs
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +14,12 @@ namespace DataAccessDemo.Data
 {
     public static class Queries
     {
-        //DONE
+        /// <summary>
+        /// Searches for a movie by title
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> SearchForMovieByTitle(string connectionString, string title)
         {
             List<String> items = new List<string>();
@@ -55,7 +63,13 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Searches for an employee by name
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> SearchForEmployeeByName(string connectionString, string firstName, string lastName)
         {
             List<String> items = new List<string>();
@@ -97,7 +111,12 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Searches for a theater by it's ID
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="theaterID"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> SearchForTheaterByID(string connectionString, int theaterID)
         {
             List<String> items = new List<string>();
@@ -130,7 +149,12 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Searching for a showing by it's title
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> SearchForShowingsByTitle(string connectionString, string title)
         {
             List<String> items = new List<string>();
@@ -169,7 +193,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// get the top ten rated movies
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> TopTenRatedMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -204,7 +232,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// gets the highest grossing individual shows for the theater
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> HighestGrossingShows(string connectionString)
         {
             List<String> items = new List<string>();
@@ -241,7 +273,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Gets the highest paid employees at the theater
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> HighestPaidEmployees(string connectionString)
         {
             List<String> items = new List<string>();
@@ -276,7 +312,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Gets all the theaters along with it's ammenities
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> TheaterAmmenities(string connectionString)
         {
             List<String> items = new List<string>();
@@ -307,7 +347,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Gets the oldest movies shown at the theater
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> OldestMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -336,7 +380,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Gets the most recent movie showings
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> RecentMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -367,7 +415,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// gets the most profitable movies at the theater
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> MostProfitableMovies(string connectionString)
         {
             List<String> items = new List<string>();
@@ -404,7 +456,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Gets the most profitable movies for the theater
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> MostPaidEmployees(string connectionString)
         {
             List<String> items = new List<string>();
@@ -439,7 +495,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Gets which directors have been given the most showings
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> MostShowingsPerDirector(string connectionString)
         {
             List<String> items = new List<string>();
@@ -470,7 +530,11 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-        //DONE
+        /// <summary>
+        /// Gets how much profit is lost due to empty seats in the theater
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static IReadOnlyList<String> ProfitLostFromEmptySeats(string connectionString)
         {
             List<String> items = new List<string>();
@@ -499,7 +563,14 @@ namespace DataAccessDemo.Data
             }
             return items;
         }
-
+        /// <summary>
+        /// Inserts a new employee into database (meaning he hasn't been terminated yet)
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="hourlyPay"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="hiredDate"></param>
         public static void InsertEmployee(string connectionString, double hourlyPay, string firstName, string lastName, DateTime hiredDate)
         {
             using (var transaction = new TransactionScope())
@@ -523,7 +594,17 @@ namespace DataAccessDemo.Data
                 }
             }
         }
-
+        /// <summary>
+        /// inserts a new showing into the database without getting it's ID out
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="employeeID"></param>
+        /// <param name="theaterID"></param>
+        /// <param name="movieID"></param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="ticketsPurchased"></param>
+        /// <param name="ticketPrice"></param>
         public static void InsertShowing(string connectionString, int employeeID, int theaterID, int movieID, DateTime startTime, DateTime endTime, int ticketsPurchased, double ticketPrice)
         {
             using (var transaction = new TransactionScope())
