@@ -20,7 +20,7 @@ namespace Menu
         public MostTotalPay()
         {
             InitializeComponent();
-            IReadOnlyList<String> items = Queries.MostPaidEmployees("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=*******;");
+            IReadOnlyList<String> items = Queries.MostPaidEmployees("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=temppassword123;");
 
             for (int i = 0; i < items.Count; i++)
             {

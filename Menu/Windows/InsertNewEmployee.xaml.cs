@@ -29,7 +29,7 @@ namespace Menu
             {
                 string[] name = data.Split(' ');
 
-                Queries.InsertEmployee("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=********;", Convert.ToDouble(name[0]), name[1], name[2], Convert.ToDateTime(name[3]));
+                Queries.InsertEmployee("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=temppassword123;", Convert.ToDouble(name[0]), name[1], name[2], Convert.ToDateTime(name[3]));
 
                 ConfirmBox.Text = "Successful Add";
                 

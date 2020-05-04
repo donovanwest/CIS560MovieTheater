@@ -22,10 +22,10 @@ namespace DataAccessDemo.Data
         {
 
             Console.WriteLine("Start");
-            //ConnectionString
+            //ConnectionString. we didn't know how to do this without needing a password, so this is my temporary one for doing the project.
             string connectionString;
             {
-                connectionString = "Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=We didn't know how to do this without the password, but you don't get to see it;";
+                connectionString = "Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=temppassword123;";
             }
             //These called all the methods to create the database
 

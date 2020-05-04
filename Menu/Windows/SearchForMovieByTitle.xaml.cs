@@ -27,7 +27,7 @@ namespace Menu
             if (ItemToAdd.Text is string data)
             {
                 
-                IReadOnlyList<String> items = Queries.SearchForMovieByTitle("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=********;", data);
+                IReadOnlyList<String> items = Queries.SearchForMovieByTitle("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=temppassword123;", data);
 
                 for (int i = 0; i < items.Count; i++)
                 {
