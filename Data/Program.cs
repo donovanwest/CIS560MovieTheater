@@ -37,7 +37,7 @@ namespace DataAccessDemo.Data
             //IReadOnlyList<Theater> theaters = GetTheaters(connectionString);
             //IReadOnlyList<Employee> employees = GetEmployees(connectionString);
 
-            //LoadShowings(connectionString, movies, theaters, employees);
+            //LoadShowings(connectionString, movies, theaters);
 
             //IReadOnlyList<Showing> showings = GetShowings(connectionString);
             //IReadOnlyList<Movie> movies = Queries.SearchForMovieByTitle(connectionString, "Jumanji");
@@ -175,7 +175,7 @@ namespace DataAccessDemo.Data
         /// <param name="movies">List of all movies</param>
         /// <param name="theaters">List of all Theaters</param>
         /// <param name="Employees">List of all employees</param>
-        static void LoadShowings(string connectionString, IReadOnlyList<Movie> movies, IReadOnlyList<Theater> theaters, IReadOnlyList<Employee> Employees)
+        static void LoadShowings(string connectionString, IReadOnlyList<Movie> movies, IReadOnlyList<Theater> theaters)
         {
             Random r = new Random();
             Console.WriteLine("Loading Showings");
@@ -225,23 +225,7 @@ namespace DataAccessDemo.Data
                 }
             }
             Console.WriteLine("Showings uploaded");
-            Console.WriteLine("Loading EmployeeShowing");
-            /*
-            foreach (Showing s in showings)
-            {
-                List<Employee> validEmployees = new List<Employee>();
-                foreach (Employee e in validEmployees)
-                    if (e.HiredDate < s.StartTime && (e.TerminatedDate == null || e.TerminatedDate > s.StartTime))
-                        validEmployees.Add(e);
-
-                int g = r.Next(1, 3);
-                if (validEmployees.Count < g)
-                    g = validEmployees.Count;
-                for (int c = 0; c < g; c++)
-                    AddEmployeeShowing(s.ShowingID, validEmployees.ElementAt<Employee>(r.Next(0, validEmployees.Count)).EmployeeID, connectionString);
-            }
-            Console.WriteLine("EmployeeShowings loaded");
-            */
+            Console.WriteLine("Loading EmployeeShowing");           
         }
         /// <summary>
         /// Creates the employee showings from the showings and employees list, and inserts them using a stored procedure"
@@ -255,7 +239,7 @@ namespace DataAccessDemo.Data
             foreach (Showing s in showings)
             {
                 List<Employee> validEmployees = new List<Employee>();
-                foreach (Employee e in validEmployees)
+                foreach (Employee e in employees)
                     if (e.HiredDate < s.StartTime && (e.TerminatedDate == null || e.TerminatedDate > s.StartTime))
                         validEmployees.Add(e);
 

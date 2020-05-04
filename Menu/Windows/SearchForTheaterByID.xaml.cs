@@ -28,7 +28,7 @@ namespace Menu
             if (Int32.Parse(ItemToAdd.Text) is int data)
             {
                 
-                IReadOnlyList<String> items = Queries.SearchForTheaterByID("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=Donnybob185;", data);
+                IReadOnlyList<String> items = Queries.SearchForTheaterByID("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=**********;", data);
 
                 for (int i = 0; i < items.Count; i++)
                 {

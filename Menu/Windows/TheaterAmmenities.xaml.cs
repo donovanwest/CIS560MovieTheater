@@ -19,7 +19,7 @@ namespace Menu
         public TheaterAmmenities()
         {
             InitializeComponent();
-            IReadOnlyList<String> items = Queries.TheaterAmmenities("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=Donnybob185;");
+            IReadOnlyList<String> items = Queries.TheaterAmmenities("Server=mssql.cs.ksu.edu;Database=donovanwest;User Id=donovanwest;Password=**********;");
 
             for (int i = 0; i < items.Count; i++)
             {
